@@ -21,5 +21,8 @@ urlpatterns = [
     path('accounts/',include('django.contrib.auth.urls')),
     #custom sign up from local app
     path('accounts/',include('users.urls')),
-    path('',include("pages.urls"))
+    path('',include("pages.urls")),
 ]
+admin.site.site_header = "Bookstore Project"
+admin.site.site_title = "Bookstore Admin Portal"
+admin.site.index_title = "Welcome to Bookstore Portal"

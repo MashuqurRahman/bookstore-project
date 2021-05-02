@@ -1,17 +1,30 @@
 {% extends "base.html" %}
+{% load static %}
 {% block title %}
 Home Page
 {% endblock title %}
 
 {% block content %}
-   <h1> Home Page <h1>
-   {% if user.is_authenticated %}
-    Hi {{user.email}}
-    For Log Out <a href ="{% url 'logout' %}">Log Out</a>
+    {% if user.is_authenticated %}
+      <h1 class="text-center"> Welcome to Bookstore Project </h1>
+      <h3 class="text-center"> Hi {{user.email}} </h3>
+      <p class="text-center">For Log Out <a href ="{% url 'logout' %}">Log Out</a></p>
+  
+      <div class="card" style="width: 18rem;">
+      <img class="card-img-top" src="{% static 'images/cover.jpg' %}" alt="Card image cap">
+      <h5 class="card-title text-center text-warning my-2">Django For Professional</h5>
+      <div class="card-body">
+         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+         <a href="#" class="btn btn-primary text-center">Download</a>
+
+      </div>
+      {% comment %} <button class="btn btn-primary" >Download</button> {% endcomment %}
+   </div>
+   
    {% else %}
    You are not logged in
-   <a href="{% url 'login' %}">Log in  Here</a>
-   <a href="{% url 'signup' %}">Signup  Here</a>
+      <a href="{% url 'login' %}">Log in  Here</a><br>
+      <a href="{% url 'signup' %}">Signup  Here</a>
 
    {% endif %}
 {% endblock content %}
